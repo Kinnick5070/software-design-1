@@ -7,9 +7,8 @@ public class Book {
         this.Price = BookPrice;
     }
 
-    public string ToString(string Name, decimal Price){
-        string ReturnValue = Name + "," + Price;
-        return ReturnValue;
+    public override string ToString(){
+        return $"Book Name: {Name}, Price: {Price:C}";
     }
 
 
