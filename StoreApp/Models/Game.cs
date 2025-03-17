@@ -1,6 +1,8 @@
 public class Game {
-    public string Name {get; set;}
+    public string? Name {get; set;}
     public decimal Price {get; set;}
+
+    public Game (){}
 
     public Game (string name, decimal price){
         this.Name = name;
