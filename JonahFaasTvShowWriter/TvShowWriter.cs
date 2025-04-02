@@ -35,7 +35,7 @@ public class TvShowWriter{
         string fileName = $"{tvShow.Id}_id.txt";
         string content = $"Id: {tvShow.Id}\nBackdrop Path: {tvShow.BackdropPath}\nName: {tvShow.Name}\nOrigin Country: {tvShow.OriginCountry}\nOriginal Language: {tvShow.OriginalLanguage}\nOriginal Name: {tvShow.OriginalName}\nOverview: {tvShow.Overview}\nPopularity: {tvShow.Popularity}\nPoster Path: {tvShow.PosterPath}\nVote Average: {tvShow.VoteAverage}\nVote Count: {tvShow.VoteCount}";
         File.WriteAllText(fileName, content);
-        MoveToBaseDir();
+        // MoveToBaseDir();
 
 
 		/* 
