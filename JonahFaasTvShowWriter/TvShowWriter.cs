@@ -47,6 +47,21 @@ public class TvShowWriter{
 
 	public int CreateCountryDirectories(List<TvShow> tvShows, string countryDirName, bool returnToBasePath = true){
 		int count = 0;
+        foreach (TvShow tvShow in tvShows)
+        {
+            string countryDir = Path.Combine(this.WriteDirPath, countryDirName, tvShow.OriginCountry);
+            if (!Directory.Exists(countryDir))
+            {
+                
+                Directory.CreateDirectory(countryDir);
+                if (returnToBasePath)
+                {
+                    Directory.SetCurrentDirectory(this.BaseDirPath);
+                }
+                count++;
+            }
+
+        }
 		/*
 			Inside of the WritePathDir, create a new directory named {countryDirName}
 			if one does not already exist. Traverse into this directory. Then, create
@@ -62,7 +77,23 @@ public class TvShowWriter{
 	}
 	
 	public void WriteShowsByCountry(List<TvShow> tvShows, string countryDirName, bool returnToBasePath = true){
-		/*
+		foreach (TvShow tvShow in tvShows)
+        {
+            string countryDir = Path.Combine(this.WriteDirPath, countryDirName, tvShow.OriginCountry);
+            if (!Directory.Exists(countryDir))
+            {
+                Directory.CreateDirectory(countryDir);
+                if (returnToBasePath)
+                {
+                    Directory.SetCurrentDirectory(this.BaseDirPath);
+                }
+            }
+            string fileName = $"{tvShow.Id}_id.txt";
+            string content = $"Id: {tvShow.Id}\nBackdrop Path: {tvShow.BackdropPath}\nName: {tvShow.Name}\nOrigin Country: {tvShow.OriginCountry}\nOriginal Language: {tvShow.OriginalLanguage}\nOriginal Name: {tvShow.OriginalName}\nOverview: {tvShow.Overview}\nPopularity: {tvShow.Popularity}\nPoster Path: {tvShow.PosterPath}\nVote Average: {tvShow.VoteAverage}\nVote Count: {tvShow.VoteCount}";
+            File.WriteAllText(Path.Combine(countryDir, fileName), content);
+        }
+        
+        /*
 			Inside of the WriteDirPath directory, create a new directory named
 			{countryDirName} if one does not already exist. Traverse into this directory
 			and create a directory for each country. Inside of each country directory,
