@@ -6,7 +6,7 @@
 boxA.ItemList.AddRange(new List<string> {"apple", "berry", "cherry", "date"});
 
 
-Box<iPhone> boxB = new Box<iPhone> {
+SmartBox<iPhone> boxB = new SmartBox<iPhone> {
     Name = "BoxB",
     FeaturedItem = new iPhone {Name = "phoneA"}
 };
@@ -19,4 +19,4 @@ boxB.ItemList.AddRange(
     }
 );
 
-Console.WriteLine(boxA);
+Console.WriteLine(boxB);
