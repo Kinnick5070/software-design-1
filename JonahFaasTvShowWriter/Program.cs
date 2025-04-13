@@ -36,7 +36,8 @@ Console.WriteLine("=================== PROMPT 3 END ===================\n");
 
 
 Console.WriteLine("=================== PROMPT 4 BEGIN ===================");
-
+writer.CreateCountryDirectories(tvShows, "Countries", false);
+Console.WriteLine($"Current Directory: {Directory.GetCurrentDirectory()}");
 /* TODO: Write your code here. */
 
 Console.WriteLine("=================== PROMPT 4 END ===================\n");
@@ -50,6 +51,8 @@ Console.WriteLine("=================== PROMPT 5 END ===================\n");
 
 
 Console.WriteLine("=================== PROMPT 6 BEGIN ===================");
+writer.WriteShowsByCountry(tvShows, "Countries", false);
+Console.WriteLine($"Current Directory: {Directory.GetCurrentDirectory()}");
 
 /* TODO: Write your code here. */
 
